@@ -1,0 +1,62 @@
+# Family Map MVP - Desktop Home
+format: pencil-dev-pen-v1
+source: design/wireframes/family-map-mvp-wireframes.md
+screen: desktop_home
+viewport: 1440x1024
+
+layout:
+  top_bar:
+    height: 72
+    elements:
+      - brand: Family Map
+      - search: Search place/member...
+      - actions: [Profile, Help]
+  left_rail:
+    width: 320
+    sections:
+      - family_members:
+          rows:
+            - Maya | Arrived school
+            - Leo | At football
+            - Nana | Offline 12m
+      - time_window: Now
+      - filters:
+          open_now: true
+          kid_safe: false
+          distance_km: 5
+          tags: [playground, museum]
+      - actions: [Apply, Reset]
+  main_map_region:
+    route_layers:
+      - Green line: Maya -> Transfer -> School
+      - Blue line: Leo -> Practice
+    nodes:
+      - member_nodes
+      - place_nodes
+    selected_node_details: right_anchored
+  timeline_dock:
+    height: 280
+    items:
+      - 08:12 Maya arrived at school | success
+      - 15:40 Pickup delayed (traffic) | warning
+      - 16:02 Nana location unavailable | danger
+
+tokens:
+  bg_app: semantic.bg.app
+  bg_surface: semantic.bg.surface
+  border_default: semantic.border.default
+  text_primary: semantic.text.primary
+  action_primary: semantic.action.primary.*
+  states: semantic.state.success|warning|danger.*
+
+states:
+  member_pill: [default, hover, selected, disabled]
+  map_node: [default, focus, selected, stale_offline]
+  timeline_event: [success, warning, danger, info]
+  primary_cta: [default, hover, pressed, disabled]
+
+accessibility:
+  - no_color_only_state: true
+  - minimum_body_text_px: 16
+  - visible_focus_ring: true
+  - minimum_touch_target_px: 44

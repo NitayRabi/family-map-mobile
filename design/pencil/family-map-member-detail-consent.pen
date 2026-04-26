@@ -1,0 +1,40 @@
+# Family Map MVP - Member Detail and Consent
+format: pencil-dev-pen-v1
+source: design/wireframes/family-map-mvp-wireframes.md
+screen: member_detail_consent
+viewport: 1280x900
+
+layout:
+  top_bar:
+    elements: [Back, Maya, Share settings]
+  status_card:
+    icon: success
+    title: Arrived at school at 08:12
+    subtitle: Last update 2 min ago
+  route_snapshot:
+    path: Home -> Transfer -> School
+    route_color: member_route_color
+  consent_visibility:
+    location_sharing: On
+    shared_with: [Mom, Dad, Nana]
+    quiet_hours: 21:00 - 06:30
+    action: Edit permissions
+  alerts:
+    arrival_alerts: true
+    delay_alerts: true
+    geofence_expansion_alerts: false
+
+tokens:
+  detail_card_bg: semantic.bg.surface
+  card_radius: radius.md
+  focus_border: semantic.border.focus
+  text_primary: semantic.text.primary
+  text_secondary: semantic.text.secondary
+
+states:
+  consent_toggle: [off, on, focus, error_helper]
+  alert_chip: [enabled, disabled, focus]
+
+accessibility:
+  - labels_on_all_toggles: true
+  - helper_text_for_errors: true

@@ -1,0 +1,37 @@
+# Family Map MVP - Pickup Coordination
+format: pencil-dev-pen-v1
+source: design/wireframes/family-map-mvp-wireframes.md
+screen: pickup_coordination
+viewport: 1280x900
+
+layout:
+  title: Pickup coordination
+  stepper:
+    steps: [1 Place, 2 Time, 3 Confirm]
+    current_step: 3
+  form:
+    place: School North Gate
+    time: 15:40
+    traffic_buffer: +10m
+  confirmation:
+    pickup_owner: Dad
+    notify: [Mom, Nana]
+    message_preview: Maya pickup confirmed for 15:40 at North Gate.
+  primary_action:
+    label: Confirm pickup
+
+tokens:
+  cta: semantic.action.primary.*
+  assistive_container: semantic.bg.surfaceMuted
+  warning_state: semantic.state.warning.*
+
+states:
+  stepper: [default, completed, active]
+  primary_cta: [default, hover, pressed, disabled]
+  traffic_buffer: [normal, warning]
+
+wayfinding_rules:
+  - unique_route_color_per_member_with_low_alert_saturation
+  - transfer_nodes_mark_custody_or_context_change
+  - every_color_signal_requires_label_or_icon
+  - sentence_case_labels_human_names_first

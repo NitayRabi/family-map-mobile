@@ -1,0 +1,42 @@
+# Family Map MVP - Mobile Home
+format: pencil-dev-pen-v1
+source: design/wireframes/family-map-mvp-wireframes.md
+screen: mobile_home
+viewport: 390x844
+
+layout:
+  header:
+    elements: [Menu, Family Map, Search]
+  member_pills:
+    horizontal_scroll: true
+    pills: [Maya OK, Leo, Nana !, All]
+  map_viewport:
+    height: 60vh
+    overlays: tube_like_routes
+    nodes: tappable_member_and_place_nodes
+    floating_action: Locate me
+  bottom_sheet:
+    default_state: half_open
+    handle: drag
+    next_event: Maya pickup 15:40
+    actions: [Open timeline, Share ETA]
+    recent:
+      - 08:12 Arrived school | success
+      - 15:40 Delay | warning
+  bottom_nav:
+    items: [Map(active), Timeline, Group]
+
+tokens:
+  bottom_sheet_bg: semantic.bg.surface
+  active_nav_item: semantic.action.primary.bg
+  inactive_nav_text: semantic.text.secondary
+  focus_outline: semantic.border.focus
+
+states:
+  bottom_sheet: [collapsed, half_open, expanded]
+  nav_item: [default, active, focus, disabled]
+  route_node: [default, selected, offline]
+
+accessibility:
+  - touch_targets_44px_min: true
+  - focus_visible_on_nav: true
